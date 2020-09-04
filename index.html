@@ -15,9 +15,15 @@
                 const canvas = document.querySelector("canvas");
                 const canvasCtx = canvas.getContext("2d");
 
+                let clicking = true;
+
+                
+
                 canvas.addEventListener("mousedown", (event) => {
                     const canvasX = event.pageX - canvas.offsetLeft;
                     const canvasY = event.pageY - canvas.offsetTop;
+
+                    let clicking = true;
                     
                     canvasCtx.beginPath();
 
@@ -25,17 +31,22 @@
                 });
 
                 canvas.addEventListener("mousemove", (event) => {
+                    if (clicking) {
                     const canvasX = event.pageX - canvas.offsetLeft;
                     const canvasY = event.pageY - canvas.offsetTop;
+
+                    let clicking = true;
 
 
                     canvasCtx.lineTo(canvasX, canvasY);
                     canvasCtx.stroke();
+                    }
                 });
 
 
                 canvas.addEventListener("mouseup", () => {
                     //console.log("deixou de ser pressionado");
+                    clicking = false;
                 });
 
 
