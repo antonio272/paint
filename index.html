@@ -23,7 +23,7 @@
                     const canvasX = event.pageX - canvas.offsetLeft;
                     const canvasY = event.pageY - canvas.offsetTop;
 
-                    let clicking = true;
+                    clicking = true;
                     
                     canvasCtx.beginPath();
 
@@ -35,8 +35,6 @@
                     const canvasX = event.pageX - canvas.offsetLeft;
                     const canvasY = event.pageY - canvas.offsetTop;
 
-                    let clicking = true;
-
 
                     canvasCtx.lineTo(canvasX, canvasY);
                     canvasCtx.stroke();
@@ -46,6 +44,10 @@
 
                 canvas.addEventListener("mouseup", () => {
                     //console.log("deixou de ser pressionado");
+                    clicking = false;
+                });
+
+                canvas.addEventListener("mouseout", () => {
                     clicking = false;
                 });
 
